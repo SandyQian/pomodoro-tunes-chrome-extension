@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pomodoro Tunes</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body data-phase="idle">
+  <header>
+    <p id="phase">Ready when you are</p>
+    <p id="clock" aria-live="off">25:00</p>
+    <div class="track" aria-hidden="true"><div id="bar"></div></div>
+    <p id="round"></p>
+  </header>
+
+  <main>
+    <div class="row">
+      <label for="workUrl">Work playlist link</label>
+      <input id="workUrl" type="url" placeholder="https://www.youtube.com/watch?v=…&list=…" spellcheck="false">
+    </div>
+    <div class="row">
+      <label for="breakUrl">Break playlist link</label>
+      <input id="breakUrl" type="url" placeholder="https://www.bilibili.com/video/BV…" spellcheck="false">
+    </div>
+
+    <div class="pair">
+      <div class="row">
+        <label for="workMin">Work minutes</label>
+        <input id="workMin" type="number" min="1" max="240" step="1">
+      </div>
+      <div class="row">
+        <label for="breakMin">Break minutes</label>
+        <input id="breakMin" type="number" min="1" max="240" step="1">
+      </div>
+    </div>
+
+    <div class="row">
+      <label for="sound">Sound at every switch</label>
+      <div class="sound">
+        <select id="sound"></select>
+        <button id="preview" type="button">Play sample</button>
+      </div>
+    </div>
+    <div class="row">
+      <label for="volume">Sound volume</label>
+      <input id="volume" type="range" min="0" max="1" step="0.05">
+    </div>
+
+    <label class="check"><input id="notify" type="checkbox"> Notify me at every switch</label>
+
+    <p id="error" role="alert" hidden></p>
+
+    <div class="actions">
+      <button id="start" class="primary">Start timer</button>
+      <button id="skip" hidden>Skip to break</button>
+      <button id="stop" hidden>Stop timer</button>
+    </div>
+  </main>
+  <script src="sounds.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

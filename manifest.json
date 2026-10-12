@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Pomodoro Tunes",
+  "version": "1.1.2",
+  "minimum_chrome_version": "116",
+  "description": "A pomodoro timer with customised work/break bgm from YouTube and Bilibili links. ",
+  "permissions": ["alarms", "storage", "tabs", "scripting", "notifications", "offscreen"],
+  "host_permissions": [
+    "*://*.youtube.com/*",
+    "*://youtu.be/*",
+    "*://*.bilibili.com/*",
+    "*://b23.tv/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" }
+  },
+  "icons": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" }
+}
