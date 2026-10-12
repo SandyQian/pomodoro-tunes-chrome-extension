@@ -17,17 +17,29 @@ const DEFAULT_STATE = {
   phase: "work", // "work" | "break"
   endTime: 0,
   round: 1,
+  sessionsToday: 0,
+  sessionsDate: "",
   tabs: { work: null, break: null }
 };
 
 const PHASE_ALARM = "phase-end";
 const TICK_ALARM = "badge-tick";
 const other = (phase) => (phase === "work" ? "break" : "work");
+const todayKey = () => {
+  const d = new Date();
+  return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+};
 
 async function load() {
   const d = await chrome.storage.local.get(["settings", "state"]);
   const state = { ...DEFAULT_STATE, ...(d.state || {}) };
   state.tabs = { ...DEFAULT_STATE.tabs, ...(state.tabs || {}) };
+  const today = todayKey();
+  if (state.sessionsDate !== today) {
+    state.sessionsDate = today;
+    state.sessionsToday = 0;
+    await saveState(state);
+  }
   return { settings: { ...DEFAULT_SETTINGS, ...(d.settings || {}) }, state };
 }
 
@@ -141,6 +153,7 @@ async function switchPhase() {
   if (!state.running) return;
   const next = other(state.phase);
   if (next === "work") state.round += 1;
+  else state.sessionsToday += 1;
 
   playSwitchSound(settings);
   await beginPhase(state, settings, next);

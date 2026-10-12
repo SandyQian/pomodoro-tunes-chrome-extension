@@ -8,9 +8,12 @@
 <body data-phase="idle">
   <header>
     <p id="phase">Ready when you are</p>
-    <p id="clock" aria-live="off">25:00</p>
+    <div class="clock-row">
+      <p id="clock" aria-live="off">25:00</p>
+      <p id="round"></p>
+    </div>
     <div class="track" aria-hidden="true"><div id="bar"></div></div>
-    <p id="round"></p>
+    <p id="sessionsToday"></p>
   </header>
 
   <main>

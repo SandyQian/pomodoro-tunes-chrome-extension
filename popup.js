@@ -3,7 +3,12 @@ const DEFAULTS = { workUrl: "", breakUrl: "", workMin: 25, breakMin: 5, notify: 
 const FIELDS = ["workUrl", "breakUrl", "workMin", "breakMin", "notify", "sound", "volume"];
 
 let settings = { ...DEFAULTS };
-let state = { running: false, phase: "work", endTime: 0, round: 1 };
+let state = { running: false, phase: "work", endTime: 0, round: 1, sessionsToday: 0, sessionsDate: "" };
+
+const todayKey = () => {
+  const d = new Date();
+  return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+};
 
 function readForm() {
   const mins = (id) => {
@@ -46,6 +51,8 @@ function render() {
   $("start").hidden = running;
   $("skip").hidden = !running;
   $("stop").hidden = !running;
+  $("sessionsToday").textContent =
+    "Sessions done today: " + (state.sessionsDate === todayKey() ? state.sessionsToday || 0 : 0);
 
   if (!running) {
     $("phase").textContent = "Ready when you are";
