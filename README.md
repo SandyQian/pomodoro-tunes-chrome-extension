@@ -2,6 +2,7 @@
 
 Inspired by pomodoro videos, this is a chrome extenstion that keeps a work playlist tab and a break playlist tab open, and switches betweeen the two with timer. Works with YouTube and Bilibili links.
 
+
 ## Install
 1. Unzip this folder.
 2. Open `chrome://extensions` and turn on **Developer mode** (top right).
@@ -18,3 +19,6 @@ Inspired by pomodoro videos, this is a chrome extenstion that keeps a work playl
 If you already have a tab open on exactly the link you pasted, that tab is used instead of opening a new one.
 
 The number on the icon is the minutes left (red = work, green = break).
+
+## Playlist curation 
+The extension works for both videos that is already a playlist and self-curated youtube/bilibili playlist. 
