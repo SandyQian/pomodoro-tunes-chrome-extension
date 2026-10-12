@@ -59,7 +59,7 @@ function render() {
   $("phase").textContent = state.phase === "work" ? "Working" : "On a break";
   $("clock").textContent = fmt(left);
   $("bar").style.width = Math.min(100, Math.max(0, (1 - left / total) * 100)) + "%";
-  $("round").textContent = "Round " + state.round;
+  $("round").textContent = "Session " + state.round;
   $("skip").textContent = state.phase === "work" ? "Skip to break" : "Skip to work";
 }
 

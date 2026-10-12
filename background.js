@@ -153,7 +153,7 @@ async function switchPhase() {
       title: next === "work" ? "Back to work" : "Break time",
       message:
         next === "work"
-          ? `Round ${state.round}: ${settings.workMin} minutes of focus.`
+          ? `Session ${state.round}: ${settings.workMin} minutes of focus.`
           : `Step away for ${settings.breakMin} minutes.`
     });
   }
