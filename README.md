@@ -1,7 +1,6 @@
 # Pomodoro Tunes
 
 Inspired by pomodoro videos, this is a chrome extenstion that keeps a work playlist tab and a break playlist tab open, and switches betweeen the two with timer. Works with YouTube and Bilibili links.
-
 ![Pomodoro Tunes icon](img_for_git.jpg)
 
 ## Install
